@@ -36,7 +36,7 @@ class UserController{
                 res.send("Invalid Credential");
             }
             else{
-                let isMatch = await bcrypt.compare(password,storeEmail.password)
+                let isMatch = bcrypt.compare(password, storeEmail.password)
                 if(isMatch){
                     res.send("Welcome to dashboard");
                 }
