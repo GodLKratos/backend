@@ -11,7 +11,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use("/todo",router)
+app.use("/",router)
 connectDB(process.env.DB_URL);
 
 app.listen(PORT,()=>{
