@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 class UserController{
     static registration = async (req,res)=>{
+        try{
             const {name,email,password} = req.body;
             const salt = await bcrypt.genSalt(10);
             const  hashpassword = await bcrypt.hash(password,salt);
@@ -19,6 +20,10 @@ class UserController{
                 await User.save();
                 res.send("Welcome to dashboard"); 
             }
+        }
+        catch(e){
+            res.status(200).send(e);
+        }
 
 
     }
