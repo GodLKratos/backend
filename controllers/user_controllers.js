@@ -30,7 +30,6 @@ class UserController{
 
 
     static login = async (req,res)=>{
-        try{
             const {email,password} = req.body;
             const storeEmail = await Register.findOne({email:email});
             if(email == null){
@@ -45,10 +44,7 @@ class UserController{
                     res.send("Invalid Credential");
                 }
             }  
-        }
-        catch(e){
-            res.send("kuch to galat hai");
-        }
+
  
     }
 }
