@@ -35,9 +35,7 @@ class UserController {
         if (isMatch) {
           res.send("Welcome to dashboard");
         } else {
-          res.send({
-            "name":"galat"
-          });
+          res.send("Invalid Credential");
         }
       }
     } catch (err) {
