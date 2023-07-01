@@ -22,7 +22,7 @@ class UserController{
             }
         }
         catch(e){
-            res.send('error', e );
+            res.status(status).send(e);
         }
 
 
