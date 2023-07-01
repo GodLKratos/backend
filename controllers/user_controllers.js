@@ -15,7 +15,7 @@ class UserController{
                 const User  = new Register({
                     name:name,
                     email:email,
-                    password:password,
+                    password:hashpassword,
                 });
                 await User.save();
                 res.send("Welcome to dashboard"); 
