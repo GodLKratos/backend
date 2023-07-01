@@ -12,9 +12,8 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use("/",router)
+connectDB(process.env.DB_URL);
 
-connectDB(process.env.DB_URL).then(() => {
-    app.listen(PORT, () => {
-        console.log("listening for requests");
-    })
+app.listen(PORT,()=>{
+    console.log('Server is running on port 2000');
 })
