@@ -3,27 +3,28 @@ const bcrypt = require("bcryptjs");
 
 class UserController{
     static registration = async (req,res)=>{
-        try{
-            const {name,email,password} = req.body;
-            const salt = await bcrypt.genSalt(10);
-            const  hashpassword = await bcrypt.hash(password,salt);
-            const uniqueEmail = await Register.findOne({email:email});
-            if(uniqueEmail!=null){
-                res.send("Email Already exist")
-            }
-            else{
-                const User  = new Register({
-                    name:name,
-                    email:email,
-                    password:hashpassword,
-                });
-                await User.save();
-                res.send("Welcome to dashboard"); 
-            }
-        }
-        catch(e){
-            res.status(200).send(e);
-        }
+        // try{
+        //     const {name,email,password} = req.body;
+        //     const salt = await bcrypt.genSalt(10);
+        //     const  hashpassword = await bcrypt.hash(password,salt);
+        //     const uniqueEmail = await Register.findOne({email:email});
+        //     if(uniqueEmail!=null){
+        //         res.send("Email Already exist")
+        //     }
+        //     else{
+        //         const User  = new Register({
+        //             name:name,
+        //             email:email,
+        //             password:hashpassword,
+        //         });
+        //         await User.save();
+        //         res.send("Welcome to dashboard"); 
+        //     }
+        // }
+        // catch(e){
+        //     res.status(200).send(e);
+        // }
+        res.send("whyyyy");
 
 
     }
