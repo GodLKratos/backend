@@ -36,7 +36,7 @@ class UserController {
           res.send("Welcome to dashboard");
         } else {
           res.send({
-            "name":"galat",
+            "name":"galat"
           });
         }
       }
