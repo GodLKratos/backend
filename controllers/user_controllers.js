@@ -10,7 +10,9 @@ class UserController {
       const hashpassword = await bcrypt.hash(password, salt);
       const uniqueEmail = await Register.findOne({ email: email });
       if (uniqueEmail != null) {
-        res.send("Email Already exist");
+        res.send({
+          "message":"Email Already exist"
+        });
       } else {
         const User = new Register({
           name: name,
@@ -26,7 +28,9 @@ class UserController {
         });
       }
     } catch (e) {
-      res.send("Something Wrong");
+      res.send({
+        "message":"Something Wrong",
+      });
     }
   };
 
