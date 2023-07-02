@@ -19,7 +19,11 @@ class UserController {
         });
         const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
         await User.save();
-        res.send("Welcome to dashboard");
+        res.send({
+          "message":"Welcome to dashboard",
+          "token":token,
+          "id":User._id
+        });
       }
     } catch (e) {
       res.send("Something Wrong");
