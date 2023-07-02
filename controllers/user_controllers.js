@@ -29,18 +29,18 @@ class UserController {
       const { email, password } = req.body;
       const storeEmail = await Register.findOne({ email: email });
       if (email == null) {
-        res.send("Invalid Credential");
+        res.send("Invalid Credential e" );
       } else {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
           if (isMatch) {
             res.send("Welcome to dashboard");
           } else {
-            res.send("Invalid Credential");
+            res.send("Invalid Credential p");
           }
         }
         catch(e){
-          res.send("Invalid Credential ");
+          res.send("Invalid Credential c ");
         }
 
       }
