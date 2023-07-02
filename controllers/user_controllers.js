@@ -40,7 +40,7 @@ class UserController {
       const storeEmail = await Register.findOne({ email: email });
       if (email == null) {
         res.send({
-          "message":"Invalid Credential e"
+          "message":"Invalid Credential"
         });
       } else {
         try{
@@ -54,13 +54,13 @@ class UserController {
             });
           } else {
             res.send({
-              "message":"Invalid Credential p"
+              "message":"Invalid Credential"
             });
           }
         }
         catch(e){
           res.send({
-            "message":"Invalid Credential baad"
+            "message":"Invalid Credential"
           });
         }
 
