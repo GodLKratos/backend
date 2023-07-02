@@ -39,23 +39,36 @@ class UserController {
       const { email, password } = req.body;
       const storeEmail = await Register.findOne({ email: email });
       if (email == null) {
-        res.send("Invalid Credential" );
+        res.send({
+          "message":"Invalid Credential"
+        } );
       } else {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
           if (isMatch) {
-            res.send("Welcome to dashboard");
+            const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
+            res.send({
+              "message":"Welcome to dashboard",
+              "token":token,
+              "id":storeEmail._id
+            });
           } else {
-            res.send("Invalid Credential");
+            res.send({
+              "message":"Invalid Credential"
+            });
           }
         }
         catch(e){
-          res.send("Invalid Credential");
+          res.send({
+            "message":"Invalid Credential"
+          });
         }
 
       }
     } catch (err) {
-      res.send("Something Wrong");
+      res.send({
+        "message":"Something Wrong",
+      });
     }
   };
 }
