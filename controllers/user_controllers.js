@@ -40,7 +40,7 @@ class UserController {
           }
         }
         catch(e){
-          res.send("Invalid Credential");
+          res.send("Invalid Credential ");
         }
 
       }
