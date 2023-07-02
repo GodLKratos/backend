@@ -46,7 +46,7 @@ class UserController {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
           if (isMatch) {
-            const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
+            const token = jwt.sign({id:storeEmail._id},process.env.SECRET_KEY);
             res.send({
               "message":"Welcome to dashboard",
               "token":token,
