@@ -33,15 +33,15 @@ class UserController {
       } else {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
+        }
+        catch(e){
+          res.send("Invalid Credential p")
+        }
           if (isMatch) {
             res.send("Welcome to dashboard");
           } else {
             res.send("Invalid Credential p");
           }
-        }
-        catch(e){
-          res.send("Invalid Credential c ");
-        }
 
       }
     } catch (err) {
