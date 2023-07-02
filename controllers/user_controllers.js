@@ -1,5 +1,6 @@
 const Register = require("../models/regModel");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 class UserController {
   static registration = async (req, res) => {
@@ -16,8 +17,13 @@ class UserController {
           email: email,
           password: hashpassword,
         });
+        const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
         await User.save();
-        res.send("Welcome to dashboard");
+        res.send({
+          "message":"Welcome to dashboard",
+          "token":token,
+          "id":User._id
+        });
       }
     } catch (e) {
       res.send("Something Wrong");

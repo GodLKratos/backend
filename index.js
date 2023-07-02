@@ -17,5 +17,5 @@ app.use("/",router)
 connectDB(process.env.DB_URL);
 
 app.listen(PORT,()=>{
-    console.log('Server is running on port 2000');
+    console.log('Server is running on port 3000');
 })
