@@ -38,7 +38,7 @@ class UserController {
     try {
       const { email, password } = req.body;
       const storeEmail = await Register.findOne({ email: email });
-      if (email == null) {
+      if (storeEmail == null) {
         res.send({
           "message":"Invalid Credential e"
         });
