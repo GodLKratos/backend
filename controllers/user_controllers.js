@@ -20,7 +20,7 @@ class UserController {
         res.send("Welcome to dashboard");
       }
     } catch (e) {
-      res.send("error");
+      res.send("Something Wrong");
     }
   };
 
