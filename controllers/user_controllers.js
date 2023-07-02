@@ -40,13 +40,13 @@ class UserController {
       const storeEmail = await Register.findOne({ email: email });
       if (email == null) {
         res.send({
-          "message":"Invalid Credential"
+          "message":"Invalid Credential e"
         });
       } else {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
           if (isMatch) {
-            //const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
+            const token = jwt.sign({id:User._id},process.env.SECRET_KEY);
             res.send({
               "message":"Welcome to dashboard",
               "token":token,
@@ -54,13 +54,13 @@ class UserController {
             });
           } else {
             res.send({
-              "message":"Invalid Credential"
+              "message":"Invalid Credential p"
             });
           }
         }
         catch(e){
           res.send({
-            "message":"Invalid Credential"
+            "message":"Invalid Credential baad"
           });
         }
 
