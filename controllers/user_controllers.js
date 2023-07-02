@@ -41,7 +41,7 @@ class UserController {
       if (email == null) {
         res.send({
           "message":"Invalid Credential"
-        } );
+        });
       } else {
         try{
           let isMatch = await bcrypt.compare(password, storeEmail.password);
