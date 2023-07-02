@@ -31,15 +31,21 @@ class UserController {
       if (email == null) {
         res.send("Invalid Credential");
       } else {
-        let isMatch = await bcrypt.compare(password, storeEmail.password);
-        if (isMatch) {
-          res.send("Welcome to dashboard");
-        } else {
+        try{
+          let isMatch = await bcrypt.compare(password, storeEmail.password);
+          if (isMatch) {
+            res.send("Welcome to dashboard");
+          } else {
+            res.send("Invalid Credential");
+          }
+        }
+        catch(e){
           res.send("Invalid Credential");
         }
+
       }
     } catch (err) {
-      res.send("something wrong");
+      res.send("Something Wrong");
     }
   };
 }
