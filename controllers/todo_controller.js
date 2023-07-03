@@ -27,10 +27,15 @@ class TodoController{
             const{userId} = req.body;
 
             const data = await Todo.find({userId:userId});
-            res.send(data);
+            res.send({
+                "message":"done",
+                "data":data
+            });
         }
         catch(e){
-            res.send("Something Wrong");
+            res.send({
+                "message":"SOmething went wrong"
+            });
         }
     }
 
