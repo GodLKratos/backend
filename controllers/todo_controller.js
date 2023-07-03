@@ -29,7 +29,7 @@ class TodoController{
             const data = await Todo.find({userId:userId});
             res.send({
                 "message":"done",
-                
+                "data":data
             });
         }
         catch(e){
