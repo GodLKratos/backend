@@ -6,6 +6,7 @@ const TodoController = require("../controllers/todo_controller");
 
 
 router.post("/data",TodoController.todopost);
+router.get("/getdata",TodoController.getData)
 
 
 module.exports = router;

@@ -22,6 +22,18 @@ class TodoController{
         }
     }
 
+    static getData = async (req,res)=>{
+        try{
+            const{userId} = req.body;
+
+            const data = await Todo.find({userId:userId});
+            res.send(data);
+        }
+        catch(e){
+            res.send("Something Wrong");
+        }
+    }
+
 }
 
 module.exports = TodoController;
