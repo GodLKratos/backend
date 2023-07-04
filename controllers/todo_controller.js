@@ -39,11 +39,11 @@ class TodoController{
     static deleteData = async (req,res)=>{
         try{
             const{id} = req.body;
-            const result = await Todo.findByIdAndDelete({id:id});
+            const result = await Todo.findByIdAndDelete({_id:id});
             res.send("Deleted");
         }
         catch(e){
-            res.send("Somethind wrong");
+            res.send("Something wrong");
         }
     }
 
