@@ -39,7 +39,6 @@ class TodoController{
     static deleteData = async (req,res)=>{
         try{
             const{_id} = req.body;
-            console.log(_id);
             await Todo.findByIdAndDelete({_id:_id});
             res.send("Deleted");
         }
